@@ -133,6 +133,7 @@
               <form action="/subscribe" method="POST">
                 <input name="email" type="email" placeholder="Your email" id="email" class="tm-input" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>                
                 <button type="submit" class="btn tm-btn-submit" id="cta">Subscribe</button>
+                <p id="error"></p>
               </form>
 
             </div>
@@ -164,7 +165,7 @@
 
 
         if (this.email.value == null || this.email.value == "") {
-          error.classList.add("errorAnim");
+          error.innerHTML = "Please put a valid email";
         } else {
           let fetchData = {
             method: 'POST',
