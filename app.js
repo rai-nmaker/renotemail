@@ -17,14 +17,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //Serve static production
-if(process.env.NODE_ENV === 'production') {
+//if(process.env.NODE_ENV === 'production') {
     //Static folder
-    app.use(express.static('public'));
+//    app.use(express.static('public'));
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
-    })
-}
+//    app.get('*', (req, res) => {
+//        res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+//    })
+//}
 
 
 
