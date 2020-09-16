@@ -4,6 +4,7 @@ const request = require('request');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 const path = require('path');
+const serverless = ('serverless-http');
 //const { request } = require('http');
 
 const app = express();
@@ -13,6 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/.netlify/functions/app', app);
 
 
 
@@ -72,3 +74,5 @@ app.post('/subscribe', (req, res) => {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, console.log('server started!'))
+
+module.exports.handler = serverless(app);
